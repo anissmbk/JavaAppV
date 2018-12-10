@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public class Login {
 
@@ -58,13 +59,16 @@ public class Login {
     @FXML
     void signUp(ActionEvent event) throws IOException {
         imageView.setVisible(true);
-        Parent signUpWindow = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
-        Scene scene = new Scene(signUpWindow);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-
+        try{
+            Parent signUpWindow = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
+            Scene scene = new Scene(signUpWindow);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+        }catch(Exception e){
+            System.out.println("erreur system verifiez tout les fichiers");
+        }
         Stage mainWindow;
         mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
         mainWindow.close();
