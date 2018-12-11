@@ -1,9 +1,13 @@
 package common;
 
 
+import Entity.User;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.sql.SQLException;
+import java.time.ZonedDateTime;
 
 import static common.Constants.*;
 
@@ -135,7 +139,8 @@ public class Response {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(new Response("12544", "125475", TYPE_AUTHORIZATION, "200", new AuthorizationResponseBody("L854855knv25hKJ", "youssef"), null));
+    public static void main(String[] args) throws SQLException, java.text.ParseException {
+        User user = new User("ouail",null);
+
     }
 }

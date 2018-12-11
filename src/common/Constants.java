@@ -19,6 +19,7 @@ public class Constants {
     public static final String KEY_SEND_USERS = "sendUsers";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_SEXE = "sexe";
+    public static final String KEY_USER = "USER";
 
     public static final String STATUS_SUCCESS = "200";
     public static final String STATUS_FORBIDDEN = "403";

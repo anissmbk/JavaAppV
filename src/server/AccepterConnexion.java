@@ -3,7 +3,9 @@ package server;
 import Entity.User;
 import common.*;
 import main.ChatMain;
+import provider.ApiCrud;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -81,7 +83,8 @@ public class AccepterConnexion implements Runnable {
         try {
             if(Verfification_data_User(username,password)){
                 new Server().AddClient(new ServerClient(socket, username));
-                response.body = new AuthorizationResponseBody(AUTHTOKEN_TEST, username);
+                System.out.println(User.get_Data_User(username,password).toString());
+                response.body = new AuthorizationResponseBody(AUTHTOKEN_TEST, User.get_Data_User(username,password));
                 response.status = STATUS_SUCCESS;
                 response.type = TYPE_AUTHORIZATION;
             }
@@ -100,6 +103,10 @@ public class AccepterConnexion implements Runnable {
         out.flush();
 
         return true;
+    }
+
+    public static void main(String[] args) throws SQLException, ParseException, IOException {
+
     }
 
     public boolean inscription(Request request) {
@@ -236,6 +243,6 @@ public class AccepterConnexion implements Runnable {
     }
     private boolean Verfification_data_User(String info, String info1) throws SQLException, ParseException {
         User user = new User(info,info1);
-        return user.Verification_data_user(info, info1);
+        return user.Verification_data_user(info, info1) != null;
     }
 }

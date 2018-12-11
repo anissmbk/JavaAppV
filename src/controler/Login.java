@@ -1,5 +1,6 @@
 package controler;
 
+import Entity.User;
 import client.ChatEventListener;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
@@ -49,7 +50,7 @@ public class Login implements ChatEventListener {
         Platform.runLater(() -> {
             if (this.usernameRegister != null || !this.usernameRegister.isEmpty()) {
                 Dialog.loadDialog(usernameRegister,mainPane);
-                usernameRegister = "";
+                usernameRegister = null;
             }
         });
     }
@@ -104,15 +105,16 @@ public class Login implements ChatEventListener {
 
 
     @Override
-    public void onConnectSuccess(String token, String profile) {
+    public void onConnectSuccess(String token, User profile) {
         System.out.println("token = " + token);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 ChatWindow.username = user.getText();
-                System.out.println(ChatWindow.username);
                 Parent appWindow = null;
                 try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/chatWindow.fxml"));
+                    //ChatWindow controller = fxmlLoader.<ChatWindow>getController();
                     appWindow = FXMLLoader.load(ChatWindow.class.getResource("../view/chatWindow.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -131,7 +133,8 @@ public class Login implements ChatEventListener {
         imageView.setVisible(false);
         button.setDisable(false);
         buttonSignIn.setDisable(false);
-        erreur.setText("Erreur System!!!");
+        erreur.setStyle("-fx-text-inner-color: red;-fx-background-color: rgba(0, 0, 0, 0);");
+        erreur.setText("Username Incorrect");
     }
 
     @Override

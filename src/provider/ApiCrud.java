@@ -77,9 +77,27 @@ public class ApiCrud {
         return false;
     }
 
+    public int[] get_Inv_userID(int id){
+        DB_connection db = new DB_connection();
+        Connection con = db.get_Connection();
+        int[] data = new int[200];
+        String query = "select * from " + Environment.invitedPath + " where" + Environment.USERIDINV + "='" + id + "' AND status='" + Environment.LOADING_INV + "'";
+        try {
+            ResultSet rs = con.createStatement().executeQuery(query);
+            int i=0;
+            while(rs.next()){
+                data[i]= Integer.parseInt(rs.getString(Environment.USERSIDINV));
+                i++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
         public static void main(String[] args) throws SQLException {
             ApiCrud crud = new ApiCrud();
-            System.out.println(crud.add_data_user("aniss","dqouail1dq","dqs",true));
+            System.out.println(crud.get_Inv_userID(1)[0]);
         }
 
 }

@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="907.0" style="-fx-background-image: url('file:/home/aniss/JavaApp/src/image/register3.jpg.jpg'); -fx-background-size: 907 500;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Register">
+<AnchorPane prefHeight="500.0" prefWidth="907.0" style="-fx-background-image: url('file:/home/ouail/Documents/JavaAppV/src/image/register3.jpg.jpg'); -fx-background-size: 907 500;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Register">
     <children>
         <Pane layoutX="335.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="469.0" style="-fx-background-color: rgba(119,120,132,0.8); -fx-border-radius: 8px; -fx-background-radius: 8px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="335.0" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="10.0">
             <children>

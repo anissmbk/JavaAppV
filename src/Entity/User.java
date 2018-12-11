@@ -1,10 +1,18 @@
 package Entity;
 
+import com.google.gson.Gson;
+import common.AuthorizationResponseBody;
+import common.PayloadBody;
+import org.json.simple.JSONObject;
 import provider.ApiCrud;
+import provider.Environment;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static common.Constants.*;
 
 public class User {
     protected int id;
@@ -31,6 +39,19 @@ public class User {
 
     public User(){
         System.out.println("verification utilisateur");
+    }
+
+    public User(int id, String username, String password,
+                String email,String nom,boolean sexe,String photo
+                ,Date birth) throws ParseException {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.nom = nom;
+        this.sexe = sexe;
+        this.photo = photo;
+        this.birth = birth;
     }
 
     public int getId() {
@@ -65,9 +86,27 @@ public class User {
         return birth;
     }
 
-    public boolean Verification_data_user(String username,String password) throws SQLException, ParseException {
+    public String[] Verification_data_user(String username, String password) throws SQLException, ParseException {
         ApiCrud crud = new ApiCrud();
-        return crud.get_data_user(username,password) != null;
+        String[] data = crud.get_data_user(username,password);
+        return data;
+    }
+
+    public static void main(String[] args) throws SQLException, ParseException {
+        User user = new User("ouail","ouaillsq");
+        System.out.println(User.get_Data_User("ouail",null).getId());
+    }
+
+    public static User get_Data_User(String username, String password) throws SQLException, ParseException {
+        ApiCrud crud = new ApiCrud();
+        String[] data = crud.get_data_user(username,password);
+        if(data[7]!=null)
+            return new User(Integer.parseInt(data[0]),data[1],data[2],data[3],data[4],
+                Boolean.parseBoolean(data[5]),data[6], new SimpleDateFormat(Environment.TIME_FORMAT).parse(data[7]));
+        else{
+            return new User(Integer.parseInt(data[0]),data[1],data[2],data[3],data[4],
+                    Boolean.parseBoolean(data[5]),data[6],null);
+        }
     }
 
     public boolean Add_data_user() throws SQLException, ParseException {
@@ -75,8 +114,8 @@ public class User {
         return crud.add_data_user(this.username,this.password,this.email,this.sexe);
     }
 
-    public static void main(String[] args) throws SQLException, ParseException {
-        User user = new User("ouail","ouaillsq");
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
@@ -106,4 +145,5 @@ public class User {
     public void setBirth(Date birth) {
         this.birth = birth;
     }
+
 }

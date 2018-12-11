@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane2" prefHeight="577.0" prefWidth="596.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Profile">
+    <children>
+        <Label layoutX="14.0" layoutY="54.0" text="Profile" textFill="WHITE">
+            <font>
+                <Font name="System Italic" size="24.0" />
+            </font>
+        </Label>
+        <Line endX="82.5" layoutX="102.0" layoutY="85.0" startX="-92.0" stroke="#4a4d53" />
+        <VBox fx:id="vboxFriends" layoutX="11.0" layoutY="88.0" prefHeight="489.0" prefWidth="443.0" spacing="1.0">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../Bureau/youssef.jpg" />
+                    </image>
+                </ImageView>
+                <Button mnemonicParsing="false" opacity="0.61" prefHeight="30.0" prefWidth="153.0" style="-fx-background-color: black;" text="modifier la photo" textFill="#f2ecec">
+                    <font>
+                        <Font name="Chilanka Regular" size="12.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Separator prefWidth="200.0" />
+                <GridPane prefHeight="120.0" prefWidth="594.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.0" minWidth="10.0" prefWidth="152.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="325.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="102.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="User Name :" textFill="#b9a8a8" />
+                        <Label text="Email :" textFill="#c6b4b4" GridPane.rowIndex="1" />
+                        <Label text="Birthday :" textFill="#c3b2b2" GridPane.rowIndex="2" />
+                        <JFXTextField unFocusColor="#c6b9b9" GridPane.columnIndex="1" />
+                        <JFXTextField unFocusColor="#c6b9b9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXTextField unFocusColor="#c6b9b9" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="69.0" text="modifier" textFill="WHITE" underline="true" GridPane.columnIndex="2">
+                            <GridPane.margin>
+                                <Insets left="11.0" />
+                            </GridPane.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Label>
+                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2">
+                            <GridPane.margin>
+                                <Insets left="8.0" />
+                            </GridPane.margin>
+                        </FontAwesomeIcon>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="69.0" text="modifier" textFill="WHITE" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="11.0" />
+                            </GridPane.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="69.0" text="modifier" textFill="WHITE" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets left="11.0" />
+                            </GridPane.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Label>
+                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="9.0" />
+                            </GridPane.margin>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon iconName="PENCIL" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets left="9.0" />
+                            </GridPane.margin>
+                        </FontAwesomeIcon>
+                    </children>
+                </GridPane>
+                <AnchorPane prefHeight="51.0" prefWidth="524.0">
+                    <children>
+                        <Label layoutX="29.0" layoutY="27.0" prefHeight="16.0" prefWidth="495.0" text="It's a good idea to use a strong password that you're not using elsewhere" textFill="#eee2e2">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Label>
+                        <FontAwesomeIcon iconName="KEY" layoutX="4.0" layoutY="32.0" size="1.5em" />
+                        <Label layoutX="38.0" layoutY="6.0" prefHeight="16.0" prefWidth="128.0" text="Change password" textFill="#000000f6">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label id="passid" alignment="CENTER_RIGHT" layoutX="453.0" layoutY="12.0" onMouseClicked="#createpage" prefHeight="30.0" prefWidth="69.0" text="modifier" textFill="#fffafa" underline="true">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor></Label>
+                        <FontAwesomeIcon iconName="PENCIL" layoutX="449.0" layoutY="30.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="hidden" prefHeight="171.0" prefWidth="443.0" />
+            </children>
+        </VBox>
+        <Button fx:id="back" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="552.0" layoutY="17.0" mnemonicParsing="false" onAction="#backactionn" prefHeight="18.0" prefWidth="34.0" style="-fx-background-color: rgb(201, 209, 221,0.6);" text="X" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

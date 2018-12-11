@@ -1,9 +1,12 @@
 package client;
 
+import Entity.User;
+
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public interface ChatEventListener {
-    void onConnectSuccess(String token, String profile);
+    void onConnectSuccess(String token, User user);
     void onConnectFailed();
     void onMessageReceived(String fromId, String content);
     void oConnectedUsersListReceived(List<String> users);

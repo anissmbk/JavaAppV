@@ -1,5 +1,6 @@
 package client;
 
+import Entity.User;
 import common.*;
 import controler.Login;
 import sun.rmi.runtime.Log;
@@ -18,6 +19,7 @@ public class Client implements Runnable {
     public Socket socket;
     private BufferedReader in;
     private String authToken = null;
+    User user;
     private List<ChatEventListener> listeners = new ArrayList<>();
 
     public void addChatEventListener(ChatEventListener listener) {
@@ -43,11 +45,13 @@ public class Client implements Runnable {
 
                 if (TYPE_AUTHORIZATION.equals(response.type)) {
                     if (STATUS_SUCCESS.equals(response.status)) {
+                        user = ((AuthorizationResponseBody) response.body).getUser();
+                        System.out.println(((AuthorizationResponseBody) response.body).getUser());
                         authToken = ((AuthorizationResponseBody) response.body).getToken();
                         if (authToken != null) {
                             for (ChatEventListener listener :
                                     listeners) {
-                                listener.onConnectSuccess(authToken,"");
+                                listener.onConnectSuccess(authToken,user);
                             }
                             continue;
                         }
@@ -63,7 +67,7 @@ public class Client implements Runnable {
                     if (STATUS_SUCCESS.equals(response.status)) {
                             for (ChatEventListener listener :
                                     listeners) {
-                                listener.onConnectSuccess(authToken,"");
+                                listener.onConnectSuccess(authToken,null);
                             }
                     }else if(STATUS_FORBIDDEN.equals(response.status)){
                         for (ChatEventListener listener :
@@ -121,7 +125,6 @@ public class Client implements Runnable {
 
     public void connect(String username, String password) throws IOException {
         new Thread(new ConnectThread(socket, authToken, username, password)).start();
-
     }
 
     public void invite(String userFrom, String userTo) throws IOException {

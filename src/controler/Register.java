@@ -1,6 +1,7 @@
 package controler;
 
 
+import Entity.User;
 import client.ChatEventListener;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -147,7 +148,7 @@ public class Register implements ChatEventListener, Environment {
     }
 
     @Override
-    public void onConnectSuccess(String token, String profile) {
+    public void onConnectSuccess(String token, User profile) {
         System.out.println("token = " + token);
         Platform.runLater(new Runnable() {
             @Override
