@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/fontawesomefx-8.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Chat-app-Java/Jar file/fontawesomefx-8.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/jfoenix-8.0.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Chat-app-Java/Jar file/jfoenix-8.0.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/jfoenix-9.0.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Chat-app-Java/Jar file/json-simple-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +37,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/json-simple-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Chat-app-Java/Jar file/mysql-connector.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -46,7 +46,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/mysql-connector.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Chat-app-Java/Jar file/postgresql-42.2.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -55,7 +55,25 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Téléchargements/javafx/jar_files/postgresql-42.2.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/JarFile/gson-2.8.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JarFile/json-20151123.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JarFile/json-simple-1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

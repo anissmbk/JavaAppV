@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="171.0" prefWidth="443.0" style="-fx-background-color: #2f3136;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Hiddenprofile">
+    <children>
+        <GridPane layoutX="22.0" layoutY="7.0" prefHeight="160.0" prefWidth="428.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="116.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="312.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="34.0" prefWidth="111.0" text="Current : " textFill="#b9a8a8">
+                    <padding>
+                        <Insets top="6.0" />
+                    </padding>
+                </Label>
+                <Label prefHeight="22.0" prefWidth="97.0" text="New :" textFill="#b9a8a8" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets top="6.0" />
+                    </padding>
+                </Label>
+                <Label prefHeight="39.0" prefWidth="108.0" text="Re-type new :" textFill="#b9a8a8" GridPane.rowIndex="2">
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </Label>
+                <JFXTextField prefHeight="1.0" prefWidth="319.0" unFocusColor="#c6b9b9" GridPane.columnIndex="1" />
+                <JFXTextField prefHeight="8.0" prefWidth="319.0" unFocusColor="#c6b9b9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <JFXTextField prefHeight="28.0" prefWidth="319.0" unFocusColor="#c6b9b9" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="save changes" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <GridPane.margin>
+                        <Insets left="229.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Button>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

@@ -1,8 +1,10 @@
 package controler;
 
 
+import client.ChatEventListener;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,13 +17,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import main.ChatMain;
+import provider.Environment;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.regex.Matcher;
 
-public class Register {
+public class Register implements ChatEventListener, Environment {
 
     public static boolean register = false;
+
+    public Register() {
+        ChatMain.client.addChatEventListener(this);
+    }
 
     @FXML
     private JFXRadioButton male;
@@ -65,8 +74,8 @@ public class Register {
     }
 
     public static boolean validate(String emailStr) {
-
-        return true;
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+        return matcher.find();
     }
 
     public void Style(){
@@ -87,7 +96,7 @@ public class Register {
     }
 
     @FXML
-    void inscription(ActionEvent event) {
+    void inscription(ActionEvent event) throws IOException {
         String passwordRegisterText = passwordRegister.getText();
         String confirmPasswordText = confirmPassword.getText();
         if(emailRegister.getText().trim().isEmpty() || passwordRegister.getText().trim().isEmpty() || confirmPassword.getText().trim().isEmpty() || usernameRegister.getText().trim().isEmpty() || (!male.isSelected() && !femal.isSelected())
@@ -99,7 +108,12 @@ public class Register {
                     erreur.setText("Email incorrect");
                 }
                 else {
-
+                    imageView.setVisible(true);
+                    signup.setDisable(true);
+                    cancelAction.setDisable(true);
+                    boolean sexe = male.isSelected();
+                    ChatMain.client.inscriptionUser(usernameRegister.getText(), passwordRegister.getText(),
+                            emailRegister.getText(),sexe);
                 }
             } else {
                 passwordRegister.setStyle("-fx-text-fill: rgb(211, 76, 76);-fx-background-color:transparent");
@@ -119,7 +133,7 @@ public class Register {
 
     @FXML
     public void retour(ActionEvent event) throws IOException {
-        ouvrirFenetre(event,"login.fxml");
+        ouvrirFenetre(event,"../view/login.fxml");
     }
 
     @FXML
@@ -131,4 +145,69 @@ public class Register {
     public void selectFemal(ActionEvent actionEvent) {
         male.setSelected(false);
     }
+
+    @Override
+    public void onConnectSuccess(String token, String profile) {
+        System.out.println("token = " + token);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/login.fxml"));
+                Parent root = null;
+                try {
+                    root = (Parent)fxmlLoader.load();
+                    Login controller = fxmlLoader.<Login>getController();
+                    controller.setUser(usernameRegister.getText());
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.show();
+                    Stage mainWindow;
+                    mainWindow = (Stage) usernameRegister.getScene().getWindow();
+                    mainWindow.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        imageView.setVisible(false);
+        signup.setDisable(false);
+        cancelAction.setDisable(false);
+    }
+
+    @Override
+    public void onConnectFailed() {
+        imageView.setVisible(false);
+        signup.setDisable(false);
+        cancelAction.setDisable(false);
+        erreur.setText("User deja existant");
+    }
+
+    @Override
+    public void onMessageReceived(String fromId, String content) {
+
+    }
+
+    @Override
+    public void oConnectedUsersListReceived(List<String> users) {
+
+    }
+
+    @Override
+    public void onInvitationReceived(String fromId, String content) {
+
+    }
+
+    @Override
+    public void onUserConnect(String username) {
+
+    }
+
+    @Override
+    public void onUserLeave(String userId, String profile) {
+
+    }
+
 }

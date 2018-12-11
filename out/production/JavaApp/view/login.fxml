@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="499.0" prefWidth="755.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-image: url(&quot;file:/home/aniss/JavaApp/src/friend2.jpg&quot;); -fx-background-size: 800 500;" styleClass="anshor" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Login">
+<AnchorPane prefHeight="499.0" prefWidth="755.0" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-image: url(&quot;file:/home/ouail/Documents/JavaAppV/src/friend2.jpg&quot;); -fx-background-size: 800 500;" styleClass="anshor" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.Login">
     <children>
         <Pane focusTraversable="true" layoutX="393.0" layoutY="75.0" prefHeight="396.0" prefWidth="300.0" style="-fx-background-color: rgba(119,120,132,0.9); -fx-background-radius: 8px; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 12,0.2, 1, 1);">
             <children>
